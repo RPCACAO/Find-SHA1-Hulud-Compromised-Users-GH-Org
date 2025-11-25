@@ -41,7 +41,7 @@ Included also is the ability to generate a list of organizations that the authen
     ```
     sh get-all-users.sh -f <file-path>
     ```
-8. Check the output file `all_sha1repos*.json` for any compromised user in your organization
+8. Check the output file `all_sha1repos*.json` for any compromised users in your organization
 
 
 ## Caveats
