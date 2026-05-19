@@ -42,7 +42,7 @@ Included also is the ability to generate a list of organizations that the authen
     Line 90:
     RESULT=$(curl -s -u <username>:<personal_access_token> https://api.github.com/users/${USERNAME}/repos)
     ```
-7. Execute the sha1-hulud checker script pointing it to a list of only user names (output of get-all-users.sh after I altered it)
+7. Execute the sha1-hulud checker script pointing it to a list of only user names ( usr-list-clean.txt - output of get-all-users.sh after I altered it)
     ```
     sh get-all-users.sh -f <file-path>
     ```
