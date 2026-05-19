@@ -85,7 +85,7 @@ while [ ${HAS_NEXT_PAGE} -eq 1 ]; do
         ORG_CURSOR=""
         debug "No cursor defined. First query attempt."
     fi
-
+	echo ${ORG_CURSOR}
     RESULT=$(gh api graphql ${ORG_CURSOR} -f query='
         query($cursor: String) {
             viewer {

@@ -83,28 +83,28 @@ fi
 touch ${EXPORT_FILE}
 
 while read USERNAME; do
+	
+	echo "Getting repos from ${USERNAME}..."
 
-        echo "Getting repos from ${USERNAME}..."
-
-        # Authenticate to github to increase your rate limit to 5000 https://github.com/settings/tokens
-        RESULT=$(curl -s -u <username>:<personal_access_token> https://api.github.com/users/${USERNAME}/repos)
+	# Authenticate to github to increase your rate limit to 5000 https://github.com/settings/tokens
+	RESULT=$(curl -s -u <username>:<personal_access_token> https://api.github.com/users/${USERNAME}/repos)
 
 
-        # exit if fail to get back response
+	# exit if fail to get back response
         if [ $? -ne 0 ]; then
             echo "";
             echo "Curl error: $?";
             exit 1;
         fi
 
-        debug "Query result: ${RESULT}";
+	debug "Query result: ${RESULT}";
 
-        # store condition for debugging
-        CONDITION="select( .description // \"-\" | contains(\"Sha1-Hulud\")) | pick(.html_url,.description)";
+	# store condition for debugging
+        CONDITION="select( .description // \"-\" | contains(\"niagA oG eW ereH :duluH-iahS\")) | pick(.html_url,.description)";
         debug "Using condition: '${CONDITION}'";
-        # get each user detail
+	# get each user detail
         echo "${RESULT}" | jq -r ".[] | ${CONDITION}" \
-                >> ${EXPORT_FILE};
+		>> ${EXPORT_FILE};
 
 
 done < ${IMPORT_FILE}

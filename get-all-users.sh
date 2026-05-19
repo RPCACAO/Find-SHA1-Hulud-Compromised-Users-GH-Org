@@ -108,7 +108,7 @@ while read ORG; do
             USER_CURSOR=""
             debug "No cursor defined. First query attempt."
         fi
-
+	echo ${USER_CURSOR}
         RESULT=$(gh api graphql -F organization=${ORG} ${USER_CURSOR} -f query='
             query (
                 $cursor: String
@@ -173,6 +173,7 @@ while read ORG; do
     done
 done < ${IMPORT_FILE}
 
+
 USER_FILE="usr-clean-list.txt"
 cat ${EXPORT_FILE} | cut -d "," -f2 | sort | uniq > only-users.txt
 
@@ -181,4 +182,4 @@ echo "Saved data to ${EXPORT_FILE}";
 echo "";
 echo "Saved users only list to ${USER_FILE}";
 echo "";
-echo "Recommended next command: cat ${USER_FILE}"
+echo "Recommended next command: cat ${EXPORT_FILE}"
